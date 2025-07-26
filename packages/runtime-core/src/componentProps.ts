@@ -793,15 +793,16 @@ function getInvalidTypeMessage(
  * dev only
  */
 function styleValue(value: unknown, type: string): string {
-  if (type === 'String') {
-    return `"${value}"`
+  if (typeof value === 'symbol') {
+    return 'Symbol(...)';
+  } else if (type === 'String') {
+    return `${value}`;
   } else if (type === 'Number') {
-    return `${Number(value)}`
+    return `${Number(value)}`;
   } else {
-    return `${value}`
+    return `${value}`;
   }
 }
-
 /**
  * dev only
  */
